@@ -1,0 +1,43 @@
+{
+    "manifest_version": 3,
+    "name": "Zomato Food Expense Calculator",
+    "version": "1.0",
+    "description": "Calculate your total lifetime spending on Zomato with detailed analytics.",
+    "permissions": [
+        "storage",
+        "tabs",
+        "cookies"
+    ],
+    "host_permissions": [
+        "https://www.zomato.com/*"
+    ],
+    "background": {
+        "service_worker": "scripts/background.js"
+    },
+    "action": {
+        "default_popup": "popup.html"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://www.zomato.com/*"
+            ],
+            "js": [
+                "scripts/content.js"
+            ]
+        }
+    ],
+    "web_accessible_resources": [
+        {
+            "resources": [
+                "dashboard.html",
+                "scripts/dashboard.js",
+                "styles/dashboard.css",
+                "lib/chart.js"
+            ],
+            "matches": [
+                "<all_urls>"
+            ]
+        }
+    ]
+}

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Zomato Expense Calculator</title>
+    <link rel="stylesheet" href="styles/dashboard.css">
+    <script src="lib/chart.js"></script>
+</head>
+
+<body>
+    <header class="header">
+        <div class="logo">
+            <span style="font-weight: 800; font-size: 24px; font-style: italic;">zomato</span> <span
+                style="font-weight: 300; margin-left:10px;">Analytics</span>
+        </div>
+        <div class="header-actions">
+            <button id="syncButton" class="btn-primary">Sync Data</button>
+            <span id="lastUpdated" class="last-updated">Last updated: Never</span>
+        </div>
+    </header>
+
+    <div class="container">
+
+        <div class="filter-bar">
+            <button class="filter-btn active" data-range="all">All Time</button>
+            <button class="filter-btn" data-range="1y">Last 1 Year</button>
+            <button class="filter-btn" data-range="3m">Last 3 Months</button>
+            <button class="filter-btn" data-range="30d">Last 30 Days</button>
+            <div class="custom-range">
+                <input type="date" id="startDate">
+                <span>to</span>
+                <input type="date" id="endDate">
+                <button id="applyRange" class="btn-secondary">Apply</button>
+            </div>
+        </div>
+
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Spent</h3>
+                <p class="stat-value" id="totalSpent">₹0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Total Orders</h3>
+                <p class="stat-value" id="totalOrders">0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Average Order Value</h3>
+                <p class="stat-value" id="avgOrderValue">₹0</p>
+            </div>
+        </div>
+
+        <div class="charts-grid">
+            <div class="chart-card wide">
+                <h3>Monthly Spending</h3>
+                <div class="chart-wrapper">
+                    <canvas id="monthlyChart"></canvas>
+                </div>
+            </div>
+            <div class="chart-card">
+                <h3>Ordering Habits (Time of Day)</h3>
+                <div class="chart-wrapper">
+                    <canvas id="timeChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div class="metrics-grid">
+            <div class="list-card">
+                <h3>Top 10 Restaurants by Spending</h3>
+                <ul id="topRestaurantsList" class="ranking-list">
+                    <!-- populated by js -->
+                </ul>
+            </div>
+            <div class="list-card">
+                <h3>Recent Orders</h3>
+                <ul id="recentOrdersList" class="ranking-list">
+                    <!-- populated by js -->
+                </ul>
+            </div>
+        </div>
+
+    </div>
+
+    <div id="loadingOverlay" class="overlay hidden">
+        <div class="spinner"></div>
+        <p id="loadingStatus">Fetching data...</p>
+        <div class="progress-bar">
+            <div class="progress-fill" id="progressFill"></div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="scripts/dashboard.js"></script>
+</body>
+
+</html>

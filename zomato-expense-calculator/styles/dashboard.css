@@ -1,0 +1,243 @@
+body {
+    font-family: 'Open Sans', 'Lato', sans-serif;
+    background-color: #f7fafc;
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #cb202d;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.btn-primary {
+    background-color: white;
+    color: #cb202d;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #eee;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.filter-bar {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+    background: white;
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.filter-btn {
+    background: #edf2f7;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.95rem;
+    color: #4a5568;
+    transition: all 0.2s;
+}
+
+.filter-btn:hover {
+    background: #e2e8f0;
+}
+
+.filter-btn.active {
+    background: #cb202d;
+    color: white;
+}
+
+.custom-range {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: auto;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.stat-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.stat-card h3 {
+    margin: 0 0 10px 0;
+    color: #718096;
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #cb202d;
+    margin: 0;
+}
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+.chart-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+    /* height controlled by content */
+}
+
+.chart-wrapper {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+.chart-card.wide {
+    grid-column: span 2;
+}
+
+@media (max-width: 900px) {
+    .chart-card.wide {
+        grid-column: span 1;
+    }
+}
+
+.metrics-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+@media (max-width: 768px) {
+    .metrics-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.ranking-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.ranking-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid #edf2f7;
+    font-size: 0.95rem;
+}
+
+.ranking-item:last-child {
+    border-bottom: none;
+}
+
+.ranking-item .rank {
+    font-weight: bold;
+    color: #cb202d;
+    margin-right: 15px;
+    width: 20px;
+}
+
+.ranking-item .name {
+    flex-grow: 1;
+    font-weight: 600;
+}
+
+.ranking-item .value {
+    font-weight: bold;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.hidden {
+    display: none;
+}
+
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #cb202d;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.progress-bar {
+    width: 300px;
+    height: 10px;
+    background: #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    margin-top: 10px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: #cb202d;
+    width: 0%;
+    transition: width 0.3s;
+}
